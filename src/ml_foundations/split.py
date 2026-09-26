@@ -1,7 +1,10 @@
 from collections.abc import Sequence
+from typing import TypeVar
+
+T = TypeVar("T")
 
 
-def sequential_split[T](items: Sequence[T], validation_ratio: float = 0.2) -> tuple[list[T], list[T]]:
+def sequential_split(items: Sequence[T], validation_ratio: float = 0.2) -> tuple[list[T], list[T]]:
     """Create a deterministic holdout split for ordered experiment inputs."""
     if not 0 < validation_ratio < 1:
         raise ValueError("validation_ratio must be between 0 and 1")
